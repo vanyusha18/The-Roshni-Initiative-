@@ -18,6 +18,7 @@ app.use('/api/auth', require('./routes/auth'));
 app.use('/api/stories', require('./routes/stories'));
 app.use('/api/villages', require('./routes/villages'));
 app.use('/api/impact', require('./routes/impact'));
+app.use('/api/seed', require('./routes/seed'));
 
 app.get('/', (req, res) => {
   res.send('Roshni Initiative API is running');
