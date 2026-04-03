@@ -6,7 +6,7 @@ export default function BeforeAfterSlider() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    fetch('https://the-roshni-initiative-production.up.railway.app/api/villages')
+    fetch('http://localhost:5000/api/villages')
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) setVillage(data[0]);

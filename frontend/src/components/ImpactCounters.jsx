@@ -6,7 +6,7 @@ export default function ImpactCounters() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    fetch('https://the-roshni-initiative-production.up.railway.app/api/impact')
+    fetch('http://localhost:5000/api/impact')
       .then(res => res.json())
       .then(data => setMetrics(data))
       .catch(err => console.error(err));

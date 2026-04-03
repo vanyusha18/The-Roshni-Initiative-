@@ -5,7 +5,7 @@ export default function StoryHero() {
   const [story, setStory] = useState(null);
 
   useEffect(() => {
-    fetch('https://the-roshni-initiative-production.up.railway.app/api/stories/featured')
+    fetch('http://localhost:5000/api/stories/featured')
       .then(res => res.json())
       .then(data => setStory(data))
       .catch(err => console.error("Could not fetch featured story", err));

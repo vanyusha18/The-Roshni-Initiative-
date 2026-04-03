@@ -13,7 +13,7 @@ export default function VolunteerPassport() {
       return;
     }
 
-    fetch('https://the-roshni-initiative-production.up.railway.app/api/auth/me', {
+    fetch('http://localhost:5000/api/auth/me', {
       headers: { 'Authorization': `Bearer ${token}` }
     })
       .then(res => {
