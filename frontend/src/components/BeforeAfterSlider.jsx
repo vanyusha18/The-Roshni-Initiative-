@@ -6,7 +6,7 @@ export default function BeforeAfterSlider() {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/villages')
+    fetch('https://the-roshni-initiative-production.up.railway.app/api/villages')
       .then(res => res.json())
       .then(data => {
         if (data && data.length > 0) setVillage(data[0]);
@@ -43,14 +43,14 @@ export default function BeforeAfterSlider() {
         </div>
 
         <div className="relative w-full h-[300px] md:h-[500px] overflow-hidden rounded-xl shadow-2xl shadow-roshni-ink/20 cursor-ew-resize"
-             ref={containerRef}
-             onMouseMove={(e) => e.buttons === 1 && handleDrag(e)}
-             onTouchMove={handleDrag}
-             onMouseDown={(e) => handleDrag(e)}>
-          
+          ref={containerRef}
+          onMouseMove={(e) => e.buttons === 1 && handleDrag(e)}
+          onTouchMove={handleDrag}
+          onMouseDown={(e) => handleDrag(e)}>
+
           {/* After image */}
           <img src={village.afterImage} alt="After Transformation" className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" />
-          
+
           {/* Before image with clipPath */}
           <div className="absolute inset-0 z-10" style={{ clipPath: `inset(0 ${100 - sliderPos}% 0 0)` }}>
             <img src={village.beforeImage} alt="Before Transformation" className="absolute inset-0 w-full h-full object-cover select-none pointer-events-none" />
@@ -62,7 +62,7 @@ export default function BeforeAfterSlider() {
               <span className="text-roshni-teal font-black">⟷</span>
             </div>
           </div>
-          
+
           <div className="absolute bottom-4 left-4 z-20 bg-roshni-ink/80 text-white px-4 py-2 rounded text-sm uppercase tracking-widest font-sans font-bold">Before</div>
           <div className="absolute bottom-4 right-4 z-10 bg-roshni-teal/80 text-white px-4 py-2 rounded text-sm uppercase tracking-widest font-sans font-bold">After</div>
         </div>

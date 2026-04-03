@@ -6,7 +6,7 @@ export default function ImpactCounters() {
   const [isVisible, setIsVisible] = useState(false);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/impact')
+    fetch('https://the-roshni-initiative-production.up.railway.app/api/impact')
       .then(res => res.json())
       .then(data => setMetrics(data))
       .catch(err => console.error(err));
@@ -30,7 +30,7 @@ export default function ImpactCounters() {
       let start = 0;
       const duration = 2000;
       const increment = target / (duration / 16);
-      
+
       const timer = setInterval(() => {
         start += increment;
         if (start >= target) {
@@ -40,7 +40,7 @@ export default function ImpactCounters() {
           setCount(Math.floor(start));
         }
       }, 16);
-      
+
       return () => clearInterval(timer);
     }, [isVisible, target]);
 

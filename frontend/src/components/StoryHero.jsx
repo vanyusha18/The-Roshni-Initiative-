@@ -5,7 +5,7 @@ export default function StoryHero() {
   const [story, setStory] = useState(null);
 
   useEffect(() => {
-    fetch('http://localhost:5000/api/stories/featured')
+    fetch('https://the-roshni-initiative-production.up.railway.app/api/stories/featured')
       .then(res => res.json())
       .then(data => setStory(data))
       .catch(err => console.error("Could not fetch featured story", err));
@@ -14,15 +14,15 @@ export default function StoryHero() {
   return (
     <section className="relative w-full h-[80vh] flex items-center justify-center overflow-hidden bg-roshni-ink">
       {story?.image && (
-        <img 
-          src={story.image} 
-          alt="Featured child" 
+        <img
+          src={story.image}
+          alt="Featured child"
           className="absolute inset-0 w-full h-full object-cover opacity-40 mix-blend-overlay"
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-b from-transparent via-roshni-ink/50 to-roshni-ink"></div>
-      
-      <motion.div 
+
+      <motion.div
         className="relative z-10 text-center px-6 max-w-4xl"
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
